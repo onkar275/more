@@ -1,0 +1,47 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    background-color: #f0f8ff; /* Light blue background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+/* Message styling */
+.message {
+    text-align: center;
+    font-size: 48px;
+    font-weight: bold;
+    color: #ff69b4; /* Hot pink color */
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Text shadow for better readability */
+}
+
+/* Heart emoji styling */
+.heart {
+    color: red;
+    font-size: 72px;
+    animation: heartBeat 1.5s infinite alternate; /* Heartbeat animation */
+}
+
+/* Animation for heart emoji */
+@keyframes heartBeat {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2); /* Slightly enlarge the heart */
+    }
+    100% {
+        transform: scale(1);
+    }
+}
