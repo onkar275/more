@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Marry Me?</title>
+    <style>
+        body {
+            background: linear-gradient(135deg, #f0f8ff, #ffe4e1); /* Gradient background */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+        .message {
+            text-align: center;
+            font-size: 48px;
+            font-weight: bold;
+            color: #ff69b4; /* Hot pink text color */
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Slight shadow */
+            opacity: 0;
+            transform: scale(0.8);
+            animation: fadeIn 2s forwards ease-in-out;
+        }
+        .heart {
+            color: red;
+            font-size: 72px;
+            animation: heartbeat 1.5s infinite ease-in-out;
+        }
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        @keyframes heartbeat {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+        }
+        .fireworks {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            overflow: hidden;
+        }
+        .firework {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: radial-gradient(circle, #ff1493 40%, transparent 60%);
+            border-radius: 50%;
+            opacity: 0;
+            animation: explode 1s ease-in-out forwards;
+        }
+        @keyframes explode {
+            0% {
+                transform: scale(0);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(3);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="message">
+        <span class="heart">❤</span> Will You Marry Me? <span class="heart">❤</span>
+    </div>
+    <div class="fireworks"></div>
+
+    <script>
+        // Generate random fireworks
+        function createFirework() {
+            const firework = document.createElement('div');
+            firework.classList.add('firework');
+            firework.style.left = `${Math.random() * 100}%`;
+            firework.style.top = `${Math.random() * 100}%`;
+            firework.style.animationDelay = `${Math.random()}s`;
+            document.querySelector('.fireworks').appendChild(firework);
+            setTimeout(() => firework.remove(), 1000); // Remove after animation
+        }
+
+        // Trigger fireworks periodically
+        setInterval(createFirework, 300);
+    </script>
+</body>
+</html>
+
